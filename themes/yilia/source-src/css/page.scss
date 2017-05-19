@@ -2,24 +2,22 @@
 	text-align: center;
 	margin-top: 30px;
 	.page-number{
-		width: 20px;
-		height: 25px;
-		background: #4d4d4d;
+		padding: 6px 12px;
 		display: inline-block;
-		color: #fff;
+		color: #4d4d4d;
 		line-height: 25px;
 		font-size: 12px;
-		margin: 0 5px 30px;
+		border: 1px solid #ddd;
 		border-radius: 2px;
 		&:hover{
-			background: #5e5e5e;
+			background: #ddd;
 		}
 	}
 	.current{
-		background: #88acdb;
+		background: #ddd;
 		cursor: default;
 		&:hover{
-			background: #88acdb;
+			background: #9E9E9E;
 		}
 	}
 	.extend{
