@@ -1,7 +1,7 @@
 ---
 title: Node.js 开发问题，不断更新
 date: 2017-04-20 14:19:28
-tags: Node.js
+tags: [Node.js, Promise]
 ---
 
 最近在給之前做过的项目新增一些功能，是用Node.js + express构建的，发现很多问题都是自己埋的坑，额。。。。。感慨在一条错误的道路上走了这么久，也是挺不容易的。
@@ -21,7 +21,7 @@ tags: Node.js
   }
 
 ```
-
+<!--more-->
 这个方法很简单，doSomeThing操作完后，doOtherSomeThing对结果进行操作，结果以promise返回；重点问题来了，doSomeThing 没有返回，一直处在pending状态，doOtherSomeThing执行不到，也不会执行到resolve和reject状态，就会影响到其他的操作
 
 ### 解决办法1: promise设置一个timeout
