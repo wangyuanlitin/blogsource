@@ -1,14 +1,13 @@
 ---
-title: cookie
+title: Cookies，Local Storage，Session　Storage之间的差异
 date: 2017-05-10 14:02:03
-tags:
+tags: [前端, 浏览器]
 ---
-
-### cookie
-
 
 |             |     Cookies     |     Local Storage     |     Session Storage     |
 |-------------| -------------   |:---------------------:| -----:|
-|     大小     | col 3 is        | right-aligned          | $1600 |
-|     时间     |col 2 is      | centered      |   $12 |
-|             | zebra stripes | are neat      |    $1 |
+|     共同点   | 都是保存在浏览器端，且同源的        |     |  |
+|     传输    | 始终在同源的http请求中携带        | 保存在本地          | 保存在本地 |
+|     大小    | 最大4k        | 可以达到5M或更大。          | 可以达到5M或更大。 |
+|     有效期  |浏览器关闭，或者是设置的过期时间之前有效      | 始终有效，窗口或浏览器关闭也一直保存      |   仅在当前浏览器窗口关闭前有效 |
+|      作用域 | 所有同源窗口中都是共享的 | 所有同源窗口中都是共享      |    仅在浏览器的标签页，关闭标签则删除 |
