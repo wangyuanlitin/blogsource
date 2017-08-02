@@ -73,4 +73,10 @@ socket.onopen = function(event) {
   socket.close() 
 };
 ```
-除了上述方法，还可以借助一些socket.io的库来实现，也可以使用iframe
+除了上述方法，还可以借助一些socket.io的库来实现，也可以使用iframe(并没有细看)
+
+
+### 项目过程中遇到的问题：
+长连接主要是用来做验证的，如果验证通过，那会有一段时间的有效期，这期间就不需要再次验证，那么再请求的时候前端就需要将ip、cookies、User-Agent等信息带到request header头里面
+
+正常的前端和web server交互的时候，request header头是会带cookies 和 User-Agent的，但是，我们的流程是这样的，webServer -> NodeServer -> 前端 -> webServer，这些信息并没有传到前端，所以需要从NodeServer 拿到，然后重新设置一下前端request header
