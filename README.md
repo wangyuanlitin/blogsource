@@ -10,3 +10,5 @@ hexo new [name]
 hexo generate
 ### 发布
 hexo deploy
+### 发布脚本
+deploy.sh
