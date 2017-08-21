@@ -38,8 +38,9 @@ git reset log-commit //回退到某个版本
 
 ```
 
-目前为止都没使用的
+接下来需要看的
 
-```
+```shell
+git rebase //
 
 ```
