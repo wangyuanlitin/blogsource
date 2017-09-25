@@ -2,26 +2,23 @@
 layout: false
 title: videojs
 date: 2017-09-23 15:01:59
-tags: [HTML5，javascript, 前端]
 ---
 
 <html>
-
 <head>
-    <link href="http://vjs.zencdn.net/6.2.7/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/6.2.7/video.js"></script>
-    <!-- <script src="jquery-2.0.0.min.js"></script> -->
+    <link href="/assets/css/video-js.min.css" rel="stylesheet"/>
     <style type="text/css">
     .video-js .vjs-time-control {
         display: block;
     }
     </style>
 </head>
-
 <body>
     <video id="my-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="268">
         <source src="/assets/video/oceans.mp4" type='video/mp4'>
     </video>
+    <script src="/js/src/jquery.js"></script>
+    <script src="/js/src/video.js"></script>
     <script type="text/javascript">
     videojs.getComponent('ControlBar').prototype.options_ = {
         children: [
@@ -49,8 +46,7 @@ tags: [HTML5，javascript, 前端]
         },
 
     }, function() {
-        $(".vjs-control-bar").append('<div class="logo" style="text-align: center;"><img src="logo.png" style="height: 80%; margin: 5% 0;"/></div>');
-        console.log("done")
+        $(".vjs-control-bar").append('<div class="logo" style="text-align: center;"><img src="/assets/images/me.jpeg" style="height: 80%; margin: 5% 0;"/></div>');
     });
     $("#my-player").on("keydown", function(e) {
         var keyCode = e.keyCode;
@@ -70,5 +66,4 @@ tags: [HTML5，javascript, 前端]
     })
     </script>
 </body>
-
 </html>
