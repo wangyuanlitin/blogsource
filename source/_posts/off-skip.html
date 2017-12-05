@@ -14,10 +14,10 @@
   <div>2018春节回家倒计时</div>
   <div id='left-time'></div>
   <script type="text/javascript">
-  	var endTime = new Date('2018-02-09 19: 00')
+  	var endTime = new Date('2018/02/09 19: 00')
   	var startTime
 
-  	setInterval(function(){
+  	setTimeout(function(){
   		startTime = new Date()
   		var leftTime = endTime.getTime() - startTime.getTime()
 
