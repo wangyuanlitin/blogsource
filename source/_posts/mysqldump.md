@@ -6,7 +6,7 @@ tags: mysql
 
 eg. 从主机1.1.1.1复制数据库到本地
 
-+  mysqldump   -h1.1.1.1   -u用户名    -p密码  数据库名 >  temp.sql
++  mysqldump -h1.1.1.1 -u用户名 -p密码 数据库名 >  temp.sql
 
 +  登录本地MySQL
 

@@ -1,7 +1,7 @@
 ---
-title: Node.js Assert 模块
+title: Node.js Assert 模块介绍
 date: 2018-01-23 20:41:48
-tags: [Node.js]
+tags: Node.js
 ---
 
 
@@ -104,6 +104,11 @@ tags: [Node.js]
   // 两个值不全等时返回true，和assert.deepStrictEqual()返回值正好相反
   ```
   12. assert.throws(block[, error][, message])
+  ```javascript
+  // block 是一个function
+  // error 可以是一个构造函数、正则表达式、或自定义函数
+  assert.throws
+  ```
   13. assert.doesNotThrow(block[, error][, message])
   
   14. assert.fail([message])

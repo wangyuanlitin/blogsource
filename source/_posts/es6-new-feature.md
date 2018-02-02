@@ -1,7 +1,7 @@
 ---
 title: ES6/ECMAScript2015 新特性
 date: 2016-07-18 13:08:07
-tags: [Node.js, ES6]
+tags: Node.js
 ---
 
 > 1、let和const关键字

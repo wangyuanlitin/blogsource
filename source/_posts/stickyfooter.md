@@ -17,7 +17,7 @@ tags: [前端, CSS]
 解决：给wrapper一个padding-bottom，高度与footer的高度一致（适用于footer高度固定）
 
 以下是源码，直接把内容拷贝到html文件中，在浏览器中查看效果
-
+<!--more-->
 ```html
 <html>
 

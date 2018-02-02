@@ -1,7 +1,7 @@
 ---
 title: 实际开发中遇到的一些ffmpeg命令
 date: 2015-10-28 15:00:00
-tags: [Tools, FFmpeg]
+tags: 工具
 ---
 
 试错很久，mark一下，Node.js 中可以使用fluent-ffmpeg

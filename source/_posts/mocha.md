@@ -1,109 +1,148 @@
 ---
-title: Mocha测试框架 
+title: Mocha的一些基本使用
 date: 2018-01-25 14:52:19
-tags:
+tags: [前端, 测试]
 ---
 
 ------
 
-读 /'moʊkə/，可以在Node.js环境和浏览器环境运行
+可以在Node.js环境和浏览器环境运行
 
-### 1. 安装
-```shell
-npm install -g mocha 
-```
-或者是
-```shell
-yarn global add mocha
-```
-
-### 2. 运行
-需要当前目录有test文件夹或者是test.js文件
-```shell
-mocha
-```
-如果test文件夹下有多级目录是
-```shell
-mocha --recursive
-```
-
-### 3. 一个简单的测试脚本
+### 1. 安装及运行
 ```javascript
+npm install -g mocha || yarn global add mocha //　安装
+mocha // 运行
+```
+
+### 2. 一个简单的测试脚本
+```javascript
+const assert = require('assert')
+
 describe('Test', function() {
   it ('1 == 1 ', function() {
     assert(1, 1)
   })
 })
 ```
+<!--more-->
+describe是一个模块，it是里面的测试用例，一个describe可以包含一个或者多个it块
 
-describe 是test suite，it是test cate，一个describe可以包含一个或者多个it块
+### 3. 断言库
+没有内置断言库，可以自己选择：例如：[should.js](https://github.com/shouldjs/should.js)、[expect.js](https://github.com/Automattic/expect.js)、[chai.js](http://chaijs.com/)、[better-assert](https://github.com/tj/better-assert)、[unexpected](http://unexpected.js.org/)
 
-### 4. 断言库
-可以依自己的喜好选择
-例如：[should.js](https://github.com/shouldjs/should.js)、[expect.js](https://github.com/Automattic/expect.js)、[chai.js](http://chaijs.com/)、[better-assert](https://github.com/tj/better-assert)、[unexpected](http://unexpected.js.org/)
+### 4. 一些用法
 
-### 5. 基本用法
-
-#### 5.1 asynchronous 异步
+#### ４.1 asynchronous 异步
 it回调中有一个callback，当测试执行完后，调用done()，用例就会结束
 ```javascript
-describe('User', function() {
-  describe('#save()', function() {
-    it('should save without error', function(done) {
-      var user = new User('Luna');
-      user.save(done);
-    });
-  });
-});
+describe('ASYNCHRONOUS', function() {
+  it('should done after 1500ms', function(done) {
+    setTimeout(() => {
+      done()
+    }, 1500);
+  })
+})
 ```
 
-#### 5.2 ASYNC / AWAIT
+#### 4.2 ASYNC / AWAIT 同步
 ```javascript
-beforeEach(async function() {
-  await db.clear();
-  await db.save([tobi, loki, jane]);
-});
+function test() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('test')
+    }, 1500)
+  })
+}
 
-describe('#find()', function() {
-  it('responds with matching records', async function() {
-    const users = await db.find({ type: 'User' });
-    users.should.have.length(3);
-  });
-});
+describe("test", function() {
+  it('should valid', async function() {
+    let value = await test()
+    assert.equal(value, 'test')
+  })
+})
 ```
-#### 5.3 HOOKS
-```javasript
-describe('hooks', function() {
-  before(function() {
-    // runs before all tests in this block
-  });
-
-  after(function() {
-    // runs after all tests in this block
-  });
-
-  beforeEach(function() {
-    // runs before each test in this block
-  });
-
-  afterEach(function() {
-    // runs after each test in this block
-  });
-
-  // test cases
-});
-```
-#### 5.4 DESCRIBING HOOKS
+### 4.3 ARROW FUNCTIONS
+不建议使用
+原因：箭头函数内this的指向由上下文确定，在mocha内，使用箭头函数拿不到上下文，
+但是如果内部没有this的话，就无所谓了
 ```javascript
-beforeEach(function() {
-  // beforeEach hook
+// 第一种方式：箭头函数，会报错
+describe('my suite', () => {
+  it('my test', () => {
+    this.timeout(1000);
+    assert.ok(true);
+  });
 });
+// 第二种方式：匿名函数，通过
+describe('my suite', () => {
+  it('my test', function(){
+    // should set the timeout of this test to 1000 ms; instead will fail
+    this.timeout(1000);
+    assert.ok(true);
+  });
+});
+```
+### 4.4 HOOKS
+mocha提供了四个钩子：before、after、beforeEach、afterEach
+```javascript
+describe('hooconstks', function() {
+  before(function() { console.log('before') });
 
-beforeEach(function namedFun() {
-  // beforeEach:namedFun
-});
+  after(function() { console.log('after')  });
 
-beforeEach('some description', function() {
-  // beforeEach:some description
+  beforeEach(function() { console.log('beforeEach') }); // 执行在每个test实例之前, it之前
+
+  afterEach(function() { console.log('afterEach') }); // 执行在每个test实例之后, it之后
+  // ---------before---------
+  describe('A', function(){
+    it('A test1', function(){ assert.ok(1) })
+    it('A test2', function(){ assert.ok(2) })
+  })
+
+  describe('B', function(){
+    it('B test1', function(){ assert.ok(1) })
+    it('B test2', function(){ assert.ok(2) })
+  })
+  // ---------after---------
 });
+```
+
+### 5. 参数
+--recursive 　test文件夹下有多层嵌套时
+--reporter    运行mocha时，终端的一些展示
+--timeout　　　默认设置2秒，超过2秒回报错timeout,　可以通过这个参数来设置最大时间
+--no-timeouts 不设置timeout
+　
+### 6 MOCHA.OPTS
+配置文件
+
+### 7. 测试时的数据问题
+场景: 当前测试的方法，内部依赖了别的方法，而且你也不需要测试依赖方法
+就简单的写一下Sinon.js Stubs的用法，版本v4.2.2
+* Stubs 替换某个调用行为
+
+```javascript
+let F = {
+  getDate: function() {
+    let date = new Date()
+    return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+  },
+  toString: function () {
+    return `今天是${this.getDate()}`
+  }
+}
+
+
+describe('stub demo', function() {
+  it('stub demo', function() {
+    console.log(F.toString()) // 今天是2018-1-1 14:23:1(当前时间)
+
+    let getDate = sinon.stub(F, 'getDate').callsFake(function(){
+      return '2012-12-11 11:11:11'
+    })
+
+    console.log(F.toString()) // 今天是2012-12-11 11:11:11
+    getDate.restore() // 重置stub
+  })
+})
 ```
