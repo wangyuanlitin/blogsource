@@ -39,7 +39,7 @@ xhr.onreadystatechange = function() {
 ```javascript
 let xhr = new XMLHttpRequest()
 ```
-
+<!--more-->
 | 方法        | 描述   |
 | --------   | : -----  |
 | open       | 初始化请求: xhr.open(method, url, async)<br> **注意:** 已经初始化过的请求，如果再调用open，会终止请求，相当于abort  |
