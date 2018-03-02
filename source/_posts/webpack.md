@@ -190,3 +190,34 @@ module.exports = {
 };
 
 ```
+
+### 4. 自定义loader
+```javascript
+module.exports = {
+  ...
+  module: {
+    rules: [
+      {
+        test: /\.jsx$/,
+        use: {
+            loader: "./loader/my-loader",
+        },
+        exclude: /node_modules/
+      }
+    ]
+  }
+}
+```
+./loader/my-loader
+```javascript
+/*
+ * 固定格式
+ * source 当前正在编译的js代码文件
+*/
+module.exports = function (source) {
+  // 这里写具体需要做的时候
+  // 下面一行代码是给静态资源加全路径和版本戳
+  return source.replace(/(['"(\\])(\/static\/[^'"()\s\\]+)(['")\\])/g, `$1https://www.xx.com$2?v=${Date.now()}$3`)
+}
+
+```
