@@ -1,7 +1,7 @@
 ---
 title: javascript 链接
 date: 2017-08-21 10:28:35
-tags: [javascript]
+tags: JavaScript
 ---
 
 [链接1](https://github.com/jawil/blog/issues/24)

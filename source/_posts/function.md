@@ -1,7 +1,7 @@
 ---
 title: 纯函数
 date: 2018-01-11 13:57:24
-tags: javascript
+tags: JavaScript
 ---
 
 ------

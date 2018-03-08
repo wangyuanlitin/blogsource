@@ -1,7 +1,7 @@
 ---
 title: Ajax的核心 - XMLHttpRequest
 date: 2018-02-08 11:34:44
-tags: javascript
+tags: JavaScript
 ---
 
 ------

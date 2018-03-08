@@ -1,7 +1,7 @@
 ---
 title: webpack
 date: 2018-03-02 10:22:44
-tags: Javascript
+tags: JavaScript
 ---
 
 ------

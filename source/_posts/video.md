@@ -1,7 +1,7 @@
 ---
 title: H5 Video 参数和方法
 date: 2017-09-23 14:01:59
-tags: [HTML5，Javascript]
+tags: [HTML5，JavaScript]
 ---
 
 ------

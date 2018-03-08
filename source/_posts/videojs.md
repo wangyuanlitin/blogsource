@@ -1,7 +1,7 @@
 ---
 title: Video.js ControlBar设置代码片段
 date: 2018-02-02 11:54:59
-tags: [javascript, 代码片段]
+tags: [JavaScript, 代码片段]
 ---
 
 ------
