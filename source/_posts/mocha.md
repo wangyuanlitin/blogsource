@@ -15,6 +15,7 @@ mocha // 运行
 ```
 
 ### 2. 一个简单的测试脚本
+<!--more-->
 ```javascript
 const assert = require('assert')
 
@@ -24,7 +25,7 @@ describe('Test', function() {
   })
 })
 ```
-<!--more-->
+
 describe是一个模块，it是里面的测试用例，一个describe可以包含一个或者多个it块
 
 ### 3. 断言库

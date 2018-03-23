@@ -18,6 +18,7 @@ get和set访问器分别是用来获取或者设置对象属性的
 （6）.Safari
 
 ### 2. 标准get和set访问器的使用
+<!--more-->
 ```javascript
 var Field = {
   value: 100,
@@ -35,7 +36,7 @@ Field.val          // 输出getter 100
 Field.val = 1001   // 输出setter 1001
 Field.val          // 输出getter 1001
 ```
-<!--more-->
+
 ### 3. 模拟实现get和set访问器
 ```javascript
 var Field = {

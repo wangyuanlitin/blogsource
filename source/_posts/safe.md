@@ -18,6 +18,7 @@ tags: 前端
 ```javascript
 location.href = url
 ```
+<!--more-->
 没有经过任何验证，直接跳转
 
 再近一步，这段代码可能会产生哪些问题？

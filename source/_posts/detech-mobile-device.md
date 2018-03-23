@@ -17,7 +17,7 @@ WURFL.complete_device_name       获取手机具体型号
 
 
 ### 2. http://hgoebl.github.io/mobile-detect.js/
-
+<!--more-->
 ```javascript
 
 <script src="mobile-detect.js"></script>

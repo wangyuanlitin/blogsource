@@ -19,7 +19,7 @@ xhr.send('数据') //　如果不需要发送数据，则必须传入null
 //　因为是同步，接下来就可以从xhr读取返回内容
 xhr.responseText // 返回结果
 ```
-
+<!--more-->
 异步
 ```javascript
 // 通过检测XHR对象的readyState属性，来判断当前的请求阶段
@@ -39,7 +39,7 @@ xhr.onreadystatechange = function() {
 ```javascript
 let xhr = new XMLHttpRequest()
 ```
-<!--more-->
+
 | 方法        | 描述   |
 | --------   | : -----  |
 | open       | 初始化请求: xhr.open(method, url, async)<br> **注意:** 已经初始化过的请求，如果再调用open，会终止请求，相当于abort  |

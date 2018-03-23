@@ -19,6 +19,7 @@ tags: Node.js
 
   assert(0, '报错报错报错') // false 报错信息：报错报错报错
   ```
+  <!--more-->
   2. assert.ok(value[, message])
   ```javascript
   const assert = require('assert')
@@ -27,7 +28,6 @@ tags: Node.js
   assert.ok(0) // false 报错信息：0 == true
   assert.ok(0, '0报错了') // false 报错信息：0报错了
   ```
-  <!--more-->
   3. assert.ifError(value)
   ```javascript
   // 如果value为真，throw error，应该和assert.ok()返回结果相反
