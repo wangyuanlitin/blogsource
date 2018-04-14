@@ -5,6 +5,9 @@ tags: JavaScript
 ---
 
 ------
+this在运行时绑定，取决于函数的调用方式
+
+几种this绑定的情况
 
 ### 全局上下文
 
@@ -23,6 +26,7 @@ console.log(window.b) // b
 ```
 
 ### 函数上下文
+<!--more-->
 在函数内部，this的值，取决与函数被调用的方式
 简单调用
 ```javascript
@@ -35,6 +39,68 @@ f1() === undefined // 严格模式
 
 ```
 在严格模式下，this没有被执行的上下文，所以为undefined
+
+### 箭头函数
+箭头函数没有自己的this, 默认指向在定义它时所处的对象, 而不是执行时的对象
+
+### 作为对象的方法
+当函数作为对象的方法调用时，this指向调用函数的对象
+
+```javascript
+var obj = {
+  value: 12,
+  get: function() {
+    return this.value
+  }
+}
+
+obj.get() // 12
+```
+
+this 的绑定只受最靠近的成员引用的影响
+```javascript
+var obj = {
+  value: 12,
+  obj1: {
+    value: 14,
+    get: function() {
+      return this.value
+    }
+  }
+}
+obj.obj1.get() // 14
+```
+
+### 原型链中的this
+对于在对象原型链上某处定义的方法，同样的概念也适用。如果该方法存在于一个对象的原型链上，那么this指向的是调用这个方法的对象
+
+```javascript
+var obj = {
+  f: function () {
+    return this.a + this.b
+  }
+}
+
+var obj1 = Object.create(obj)
+
+obj1.a = 1
+obj1.b = 4
+
+obj1.f() // 5
+
+```
+
+### getter和setter中的this
+this绑定到获取属性的对象上
+
+### 作为构造函数
+当函数用作构造函数是，this被绑定到正在构造的新对象
+
+### 作为DOM事件处理函数
+this指向触发事件的元素
+
+### 作为内联事件处理函数
+代码被on-event处理函数调用时，this指向监听器所在的DOM元素
 
 ### 修改this上下文
 
@@ -99,70 +165,3 @@ _whatThis1() // obj-a
 _whatThis1() // obj-a
 _whatThis1() // obj-a
 ```
-
-### 箭头函数
-箭头函数没有自己的this, 默认指向在定义它时所处的对象, 而不是执行时的对象
-
-### 作为对象的方法
-当函数作为对象的方法调用时，this指向调用函数的对象
-
-```javascript
-var obj = {
-  value: 12,
-  get: function() {
-    return this.value
-  }
-}
-
-obj.get() // 12
-```
-
-this 的绑定只受最靠近的成员引用的影响
-```javascript
-var obj = {
-  value: 12,
-  obj1: {
-    value: 14,
-    get: function() {
-      return this.value
-    }
-  }
-}
-obj.obj1.get() // 14
-```
-
-### 原型链中的this
-对于在对象原型链上某处定义的方法，同样的概念也适用。如果该方法存在于一个对象的原型链上，那么this指向的是调用这个方法的对象
-
-```javascript
-var obj = {
-  f: function () {
-    return this.a + this.b
-  }
-}
-
-var obj1 = Object.create(obj)
-
-obj1.a = 1
-obj1.b = 4
-
-obj1.f() // 5
-
-```
-
-### getter和setter中的this
-this绑定到这只活获取属性的对象上
-
-### 作为构造函数
-当函数用作构造函数是，this被绑定到正在构造的新对象
-
-### 作为DOM事件处理函数
-this指向触发事件的元素
-
-### 作为内联事件处理函数
-代码被on-event处理函数调用时，this指向监听器所在的DOM元素
-
-
-严格模式和非严格模式之间会有些差别
-
-函数的调用方式决定了this的值，可以通过bind来设置函数this的值
