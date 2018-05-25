@@ -32,7 +32,7 @@ tags: [JavaScript, 代码片段]
         'fullscreenToggle': true //全屏
     },
   }, function () {
-    $(".vjs-control-bar").append('<div class="logo" style="text-align: center;"><img src="/assets/images/me.jpeg" style="height: 80%; margin: 5% 0;"/></div>');
+    $(".vjs-control-bar").append('<div class="logo" style="text-align: center;"><img src="/assets/images/avatar.jpg" style="height: 80%; margin: 5% 0;"/></div>');
   });
   $("#my-player").on("keydown", function (e) {
     var keyCode = e.keyCode;
