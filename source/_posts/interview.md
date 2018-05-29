@@ -65,5 +65,23 @@ var有变量提升，let、const没有
 13. 闭包
 
 14. Node.js 的全局属性
+global
+process
+console
+__filename 当前执行脚本/文件所在目录+文件名
+__dirname 当前执行脚本/文件所在目录
+setTimeout/setInterval
+clearTimeout/clearInterval
 
 15. JQuery是怎么实现链式调用的
+
+16. Http状态码
+1xx 信息 100 需要继续请求/101 协议切换
+2xx 成功请求 200 正常请求/204 没有内容
+3xx 重定向 301 永久移除/302 临时移除 /304 Not modified
+4xx 客户端错误 401 授权失败/403 Forbidden/404 没有资源
+5xx 服务端错误 500 服务端报错/502 网关错误/504 超时
+
+17. HTTP和HTTPS的区别
+
+18. HTTP1.0、HTTP1.1、HTTP2.0的区别
