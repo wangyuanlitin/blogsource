@@ -18,7 +18,7 @@ tags: 前端
 > 缩小方法： reduce、reduceRight
 
 其中sort是升序，比较的是字符串的大小，所以 [1, 2, 10].sort()， 返回的结果是 [1, 10, 2]， 这不是期望的
-
+<!--more-->
 正确是使用方式：
 ```javascript
 // 若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值
@@ -37,7 +37,6 @@ reduce 用来做什么
 > ES6基本类型：String、Number、Boolean、undefined、null、Symbol
 
 Symbol 待补充
-<!--more-->
 ### 3. null和undefined的区别
 > 类型不一样：undefined是undefined类型，null 空对象指针是object类型
 > undefined已声明，未初始化
