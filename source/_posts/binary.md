@@ -12,6 +12,7 @@ tags: [代码片段, 查找, 算法]
 　　　　　如果大于要查找的值，则在左侧继续查找，
 　　　　　如果小于要查找的值，则在右边继续查找
 　　　　　循环执行上述操作，直到找到目标值为止
+
 ```javascript
 function find(data, value) {
   if (!Array.isArray(data)) { return '序列不是数组' }
@@ -43,4 +44,4 @@ pos = find(data, 1)
 console.log(pos)
 pos = find(data, 12313)
 console.log(pos)
-``
+```
