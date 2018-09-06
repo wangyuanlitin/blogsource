@@ -1,7 +1,7 @@
 ---
 title: JavaScript检测是否是移动设备
 date: 2014-09-11 19:56:12
-tags: [JavaScript, mobile]
+tags: JavaScript
 ---
 
 ### 1. https://web.wurfl.io/

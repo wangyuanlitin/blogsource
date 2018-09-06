@@ -1,7 +1,7 @@
 ---
 title: 持续动画效果的实现
 date: 2018-05-07 15:56:50
-tags: [CSS, JavaScript]
+tags: CSS
 ---
 
 ------
