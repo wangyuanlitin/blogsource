@@ -4,12 +4,22 @@ date: 2015-05-27 05:05:04
 tags: 代码片段
 ---
 
-```javascript
+基本类型数组去重
 
-// 去掉一组整型数组重复的值
+* 方法一：
+
+```javascript
+function unique(array) {
+  return Array.from(new Set(array))
+}
+```
+
+* 方法二：
+
+```javascript
 function unique(array) {
   let res = [];
-  array.map((item) => {
+  array.forEach((item) => {
     if (res.indexOf(item) < 0) {
       res.push(item);
     }
@@ -18,3 +28,4 @@ function unique(array) {
 }
 
 ```
+
