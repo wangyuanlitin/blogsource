@@ -1,7 +1,7 @@
 ---
 title: CSS Sticky Footer 方法一
 date: 2018-01-20 11:34:26
-tags: [前端, CSS]
+tags: CSS
 ---
 
 ------
