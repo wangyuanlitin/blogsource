@@ -7,17 +7,17 @@ menu:
 # SubNav
 subnav:
   github: "https://github.com/wangyuanlitin"
-  weibo: "http://weibo.com/2259760883/profile?topnav=1&wvr=6"
+  # weibo: "http://weibo.com/2259760883/profile?topnav=1&wvr=6"
   # rss: "#"
   # zhihu: "#"
-  qq: "930664237"
+  # qq: "930664237"
   #weixin: "#"
   #jianshu: "#"
   #douban: "#"
   #segmentfault: "#"
   #bilibili: "#"
   #acfun: "#"
-  mail: "mailto:wangyuanlitin@gmail.com"
+  # mail: "mailto:wangyuanlitin@gmail.com"
   #facebook: "#"
   #google: "#"
   #twitter: "#"
@@ -102,12 +102,12 @@ smart_menu:
   #friends: '友链'
   aboutme: '关于我'
 
-friends:
-  友情链接1: http://localhost:4000/
-  友情链接2: http://localhost:4000/
-  友情链接3: http://localhost:4000/
-  友情链接4: http://localhost:4000/
-  友情链接5: http://localhost:4000/
-  友情链接6: http://localhost:4000/
+# friends:
+#   友情链接1: http://localhost:4000/
+#   友情链接2: http://localhost:4000/
+#   友情链接3: http://localhost:4000/
+#   友情链接4: http://localhost:4000/
+#   友情链接5: http://localhost:4000/
+#   友情链接6: http://localhost:4000/
 
-aboutme: 一枚前端"渣渣"<br>PC端、移动端、微信<br>Node.js、Ruby<br>还在路上<br>
+aboutme: 聪明的我<br/>美丽的我<br/>有趣的我
