@@ -13,69 +13,19 @@ tags: [JavaScript, 小程序]
 ** 一旦用户明确同意或拒绝过授权，其授权关系会记录在后台，直到用户主动删除小程序。
 
 ```javascript
-  // 获取麦克风权限
-  getRecordAuth(authSetting) {
-    return new Promise((resolve, reject) => {
-      if (!authSetting['scope.record']) {
-        Taro.authorize({
-          scope: 'scope.record',
-          success: () => {
-            resolve();
-          },
-          fail: (e) => {
-            console.log('用户本次拒绝了麦克风权限获取')
-            reject(e);
-          },
-        });
-      } else {
-        console.log('用户之前拒绝了麦克风权限获取');
-        resolve();
-      }
-    });
-  }
-
-  // 获取摄像头权限
-  getCameraAuth(authSetting) {
-    return new Promise((resolve, reject) => {
-      if (!authSetting['scope.camera']) {
-        console.log('需要获取摄像头权限');
-        Taro.authorize({
+wx.getSetting({
+  success: (res) => {
+    const { authSetting } = res;
+    if (!authSetting['scope.camera']) {
+       wx.authorize({
           scope: 'scope.camera',
           success: () => {
             resolve();
           },
-          fail: (e) => {
-            console.log('用户本次拒绝了摄像头权限获取')
-            reject(e);
-          },
-        });
-      } else {
-        console.log('用户之前拒绝了摄像头权限获取')
-        resolve();
-      }
-    });
-  }
-
-  getAuthority() {
-    return new Promise((resolve, reject) => {
-      Taro.getSetting({
-        success: (res) => {
-          const { authSetting } = res;
-          console.log(authSetting);
-          this.getRecordAuth(authSetting)
-            .then(() => {
-              return this.getCameraAuth(authSetting);
-            }).then(() => {
-              resolve();
-            }).catch((e) => {
-              reject(e);
-            });
-        },
-      });
-    });
-  }
-
-  getAuthority();
+       })
+    }
+  })
+})
 ```
 
 > * 2、主播接入，视频黑屏
@@ -95,14 +45,6 @@ tags: [JavaScript, 小程序]
 微信小程序目前最多支持 5 个 websocket，声网接入的时候会占用 1 个，先查看是不是超过了最大支持数目，如果没有可以先销毁声网socket，然后重新初始化加入频道
 
 > * 5、在通话过程中，远端视频突然黑屏
-
-```javascript
-  client.on('update-url', e => {
-    let uid = e.uid;
-    let url = e.url;
-    console.log(`用户：${uid}的拉流地址更新为${url}`)
-  });
-```
 
 检查用户拉流地址是不是改变了，但是没有更新
 
