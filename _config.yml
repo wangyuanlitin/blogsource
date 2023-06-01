@@ -89,4 +89,4 @@ jsonContent:
 deploy:
   type: git
   repo: https://github.com/wangyuanlitin/wangyuanlitin.github.io.git
-  branch: main
+  branch: master
