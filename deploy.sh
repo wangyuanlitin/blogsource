@@ -2,4 +2,4 @@
 
 set -e
 
-hexo clean && hexo g && hexo deploy
+npm run clean && npm run g && npm run deploy

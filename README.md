@@ -12,3 +12,11 @@ hexo generate
 hexo deploy
 ### 发布脚本
 deploy.sh
+
+### 报错信息
+
+```
+The "mode" argument must be integer. Received an instance of Object
+```
+
+错误原因：版本太高
